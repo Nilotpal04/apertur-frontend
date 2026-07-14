@@ -1,4 +1,5 @@
 import Dock from "./components/Dock";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -6,9 +7,7 @@ function App() {
       <div className="flex h-screen">
         <Dock/>
         <div className="flex flex-1 flex-col">
-          <header className="h-20 border-b border-[#C9BBA8]">
-          </header>
-          
+          <Header />
           <section className="flex-1">
           </section>
         </div>
