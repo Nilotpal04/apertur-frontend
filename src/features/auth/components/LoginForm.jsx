@@ -1,21 +1,29 @@
 import { useForm } from "react-hook-form"
 import { data } from "react-router-dom";
-
+import { useState } from "react";
 import { login } from "../services/auth.service";
+
+const [isLoading, setIsLoading] = useState(false)
+const [error, setError] = useState("");
 
 function LoginForm() {
     const {
         register,
         handleSubmit
     } = useForm();
-
+    
+    setError("");
     const onSubmit = (data) => {
         try {
+            setIsLoading(true);
+
             const response = await login(data);
 
             console.log(response);
         } catch (error) {
-            console.error(error);
+            setError(
+                error.response?.data?.detail || "Something went wrong."
+            );
         }
     };
 
@@ -43,12 +51,17 @@ function LoginForm() {
                     {...register("password")}
                     className="w-full rounded-xl border border-[var(--contact-sheet)] p-3 outline-none"
                 />
-
+                {error && (
+                    <p className="text-sm text-red-600">
+                        {error}
+                    </p>
+                )}
                 <button
                     type="submit"
+                    disabled={isLoading}
                     className="w-full rounded-xl bg-[var(--darkroom-ink)] py-3 text-[var(--bone-paper)]"
                 >
-                    Sign In
+                    {isLoading ? "Signing In..." : "Sign In"}
                 </button>
             </div>
         </form>
