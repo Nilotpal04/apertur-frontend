@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form"
 import { data } from "react-router-dom";
 
+import { login } from "../services/auth.service";
+
 function LoginForm() {
     const {
         register,
@@ -8,13 +10,19 @@ function LoginForm() {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        try {
+            const response = await login(data);
+
+            console.log(response);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
         <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="w-full max-w-md rounded-3xl border border-[var(--contact-sheet)] bg-white/60 p-8"
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full max-w-md rounded-3xl border border-[var(--contact-sheet)] bg-white/60 p-8"
         >
             <h1 className="mb-8 text-3xl font-semibold">
                 Welcome back
