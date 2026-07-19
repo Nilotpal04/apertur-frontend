@@ -10,8 +10,8 @@ function LoginForm() {
         handleSubmit
     } = useForm();
     
-    setError("");
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        setError("");
         try {
             setIsLoading(true);
 
@@ -44,7 +44,7 @@ function LoginForm() {
                 />
 
                 <input 
-                    type="passsword"
+                    type="password"
                     placeholder="Password"
                     {...register("password")}
                     className="w-full rounded-xl border border-[var(--contact-sheet)] p-3 outline-none"
