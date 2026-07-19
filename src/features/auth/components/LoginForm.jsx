@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form"
-import { data } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../services/auth.service";
 
-const [isLoading, setIsLoading] = useState(false)
-const [error, setError] = useState("");
-
 function LoginForm() {
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState("");
     const {
         register,
         handleSubmit
