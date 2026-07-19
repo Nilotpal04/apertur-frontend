@@ -1,8 +1,11 @@
+import AuthLayout from "../../../layouts/AuthLayout";
+import LoginForm from "../components/LoginForm";
+
 function Login() {
   return (
-    <div>
-      Login
-    </div>
+    <AuthLayout>
+      <LoginForm />
+    </AuthLayout>
   );
 }
 
