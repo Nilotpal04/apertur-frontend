@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form"
 import { useState } from "react";
 import { login } from "../services/auth.service";
 
+import useAuthStore from "../../../store/auth.store";
+
 function LoginForm() {
+    const loginUser = useAuthStore((state) => state.login);
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState("");
     const {
@@ -14,14 +17,15 @@ function LoginForm() {
         setError("");
         try {
             setIsLoading(true);
-
             const response = await login(data);
+            loginUser(response.access_token);
+        } catch(error) {
 
-            console.log(response);
-        } catch (error) {
             setError(
                 error.response?.data?.detail || "Something went wrong."
             );
+        } finally {
+            setIsLoading(false);
         }
     };
 

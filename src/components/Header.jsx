@@ -1,6 +1,10 @@
 import { Search } from "lucide-react";
+import useAuthStore from "../store/auth.store";
 
 function Header() {
+  const isAuthenticated = useAuthStore(
+    (state) => state.isAuthenticated
+  );
   return (
     <header className="flex h-20 items-center justify-between border-b border-[var(--contact-sheet)] px-8">
 
@@ -31,6 +35,9 @@ function Header() {
         />
 
       </div>
+      <p>
+        {isAuthenticated ? "Logged In" : "Guest"}
+      </p>
 
       <button
         className="

@@ -1,5 +1,5 @@
 import client from "../../../api/client";
-import { ENDPOINTS } from "../../../api/endpoints"
+import ENDPOINTS from "../../../api/endpoints";
 
 export async function  login(credentials) {
     const response = await client.post(
