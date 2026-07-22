@@ -17,8 +17,7 @@ function LoginForm() {
         setError("");
         try {
             setIsLoading(true);
-            const response = await login(data);
-            loginUser(response.access_token);
+            await login(data);
         } catch(error) {
 
             setError(

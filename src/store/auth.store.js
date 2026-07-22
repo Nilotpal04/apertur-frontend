@@ -1,30 +1,23 @@
-import { Flashlight, LogIn } from "lucide-react";
-import { set } from "react-hook-form";
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
-const useAuthStore = create(
-    persist(
-        (set) => ({
-            accessToken: null,
-            isAuthenticated: false,
+const useAuthStore = create((set) => ({
+    user: null,
+    isAuthenticated: false,
+    isLoading: true,
 
-            login: (token) =>
-                set({
-                    accessToken: token,
-                    isAuthenticated: true,
-                }),
-
-            logout: () => 
-                set({
-                    accessToken: null,
-                    isAuthenticated: false,
-                }),
+    setUser: (user) =>
+        set({
+            user,
+            isAuthenticated: true,
+            isLoading: false,
         }),
-        {
-            name: "apertur-auth"
-        }
-    )
-)
+
+    clearUser: () =>
+        set({
+            user: null,
+            isAuthenticated: false,
+            isLoading: false,
+        }),
+}));
 
 export default useAuthStore;
