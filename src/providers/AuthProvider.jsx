@@ -1,0 +1,28 @@
+import { useQuery } from "@tanstack/react-query";
+
+import { getCurrentUser } from "../features/auth/services/auth.service";
+
+import useAuthStore from "../store/auth.store";
+
+
+function AuthProvider({ children }) {
+
+    const setUser = useAuthStore(
+        state => state.setUser
+    );
+
+
+    useQuery({
+        queryKey:["current-user"],
+        queryFn:getCurrentUser,
+        retry:false,
+        onSuccess:(data)=>{
+            setUser(data);
+        }
+    });
+
+    return children;
+}
+
+
+export default AuthProvider;

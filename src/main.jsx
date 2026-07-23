@@ -8,9 +8,16 @@ import "./index.css";
 import QueryProvider from "./providers/QueryProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-      <QueryProvider>
-          <App />
-      </QueryProvider>
-  </BrowserRouter>
-);
+<BrowserRouter>
+
+    <QueryProvider>
+
+        <AuthProvider>
+
+            <App/>
+
+        </AuthProvider>
+
+    </QueryProvider>
+
+</BrowserRouter>

@@ -8,3 +8,13 @@ export async function  login(credentials) {
     );
     return response.data;
 }
+
+export async function getCurrentUser() {
+
+    const response = await client.get(
+        ENDPOINTS.USERS.ME
+    );
+
+    return response.data;
+
+}
