@@ -5,7 +5,6 @@ import App from "./App";
 import QueryProvider from "./providers/QueryProvider";
 
 import "./index.css";
-import QueryProvider from "./providers/QueryProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 <BrowserRouter>
