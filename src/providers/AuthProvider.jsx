@@ -5,23 +5,47 @@ import { getCurrentUser } from "../features/auth/services/auth.service";
 import useAuthStore from "../store/auth.store";
 
 
-function AuthProvider({ children }) {
-
-    const setUser = useAuthStore(
-        state => state.setUser
-    );
+function AuthProvider({children}){
 
 
-    useQuery({
-        queryKey:["current-user"],
-        queryFn:getCurrentUser,
-        retry:false,
-        onSuccess:(data)=>{
-            setUser(data);
-        }
-    });
+const setUser = useAuthStore(
+    state=>state.setUser
+);
 
-    return children;
+
+const clearUser = useAuthStore(
+    state=>state.clearUser
+);
+
+
+
+useQuery({
+
+    queryKey:["current-user"],
+
+    queryFn:getCurrentUser,
+
+    retry:false,
+
+
+    onSuccess:(data)=>{
+
+        setUser(data);
+
+    },
+
+
+    onError:()=>{
+
+        clearUser();
+
+    }
+
+});
+
+
+return children;
+
 }
 
 
