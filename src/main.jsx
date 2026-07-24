@@ -1,23 +1,22 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import QueryProvider from "./providers/QueryProvider";
+import App from "./App.jsx";
+import QueryProvider from "./providers/QueryProvider.jsx";
+import AuthProvider from "./providers/AuthProvider.jsx";
 
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-<BrowserRouter>
-
-    <QueryProvider>
-
+createRoot(document.getElementById("root"))
+.render(
+  <StrictMode>
+    <BrowserRouter>
+      <QueryProvider>
         <AuthProvider>
-
-            <App/>
-
+          <App />
         </AuthProvider>
-
-    </QueryProvider>
-
-</BrowserRouter>
+      </QueryProvider>
+    </BrowserRouter>
+  </StrictMode>
 );
