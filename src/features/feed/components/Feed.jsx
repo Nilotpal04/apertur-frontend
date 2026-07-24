@@ -1,4 +1,7 @@
 import { useFeed } from "../hooks/useFeed"
+import PhotoCard from "./PhotoCard";
+
+import mockPosts from "../data/mockPosts";
 
 function Feed(){
     const {
@@ -29,9 +32,22 @@ function Feed(){
                 Apertur Feed
             </h1>
 
-            <pre>
-                {JSON.stringify(data, null, 2)}
-            </pre>
+            <div
+                className="
+                    columns-4
+                    gap-6
+                "
+            >
+
+            {
+                mockPosts.map((post)=>(
+                    <PhotoCard
+                        key={post.id}
+                        post={post}
+                    />
+                ))
+            }
+            </div>
         </section>
     )
 }
