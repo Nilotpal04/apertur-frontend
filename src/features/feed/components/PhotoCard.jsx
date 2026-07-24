@@ -2,8 +2,9 @@ function PhotoCard({ post }) {
     return (
         <article
             className="
-                break-inside-avoid
                 mb-6
+                break-inside-avoid
+                group
                 cursor-pointer
             "
         >
@@ -15,45 +16,56 @@ function PhotoCard({ post }) {
                     bg-[var(--contact-sheet)]
                 "
             >
-
-                <img
-                    src={post.image_url}
-                    alt={post.caption}
-                    className="
-                        w-full
-                        object-cover
-                        transition
-                        duration-500
-                        hover:scale-105
-                    "
-                />
-
+            <img
+                src={`${post.image_url}?auto=format&fit=crop&w=800`}
+                alt={post.title}
+                loading="lazy"
+                className="
+                    w-full
+                    rounded-2xl
+                    transition
+                    duration-700
+                    group-hover:scale-105
+                "
+            />
             </div>
-
 
             <div
                 className="
                     flex
-                    items-center
+                    items-start
                     justify-between
                     px-2
                     pt-3
                 "
             >
 
-                <p
-                    className="
-                        text-sm
-                        text-[var(--darkroom-ink)]
-                    "
-                >
-                    {post.caption}
-                </p>
+                <div>
+                    <h3
+                        className="
+                            text-sm
+                            text-[var(--darkroom-ink)]
+                        "
+                    >
+                        {post.title}
+                    </h3>
+
+                    <p
+                        className="
+                            mt-1
+                            text-xs
+                            text-[var(--contact-sheet)]
+                        "
+                    >
+                        {post.location}
+                    </p>
+                </div>
 
                 <button
                     className="
-                        text-lg
-                        text-[var(--darkroom-ink)]
+                        opacity-0
+                        transition
+                        group-hover:opacity-100
                     "
                 >
                     ⋯
@@ -62,7 +74,7 @@ function PhotoCard({ post }) {
             </div>
 
         </article>
-    )
+    );
 }
 
 export default PhotoCard;

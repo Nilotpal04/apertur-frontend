@@ -1,40 +1,22 @@
-import { useFeed } from "../hooks/useFeed"
 import PhotoCard from "./PhotoCard";
-
 import mockPosts from "../data/mockPosts";
 
+
 function Feed(){
-    const {
-        data,
-        isLoading,
-        error
-    } = useFeed();
-
-    if(isLoading){
-        return (
-            <p>
-                Loading Feed...
-            </p>
-        )
-    }
-
-    if(error){
-        return (
-            <p>
-                Failed to load feed
-            </p>
-        )
-    }
 
     return (
         <section>
+
             <h1>
                 Apertur Feed
             </h1>
 
+
             <div
                 className="
-                    columns-4
+                    columns-2
+                    md:columns-3
+                    xl:columns-4
                     gap-6
                 "
             >
@@ -47,9 +29,12 @@ function Feed(){
                     />
                 ))
             }
+
             </div>
+
         </section>
     )
 }
+
 
 export default Feed;
