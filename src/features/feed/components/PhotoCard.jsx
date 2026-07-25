@@ -6,7 +6,7 @@ function PhotoCard({ post }) {
                     src={post.image_url}
                     alt={post.content}
                     loading="lazy"
-                    className="w-full rounded-2xl object-cover transition duration-700 group-hover:scale-105"
+                    className="w-full rounded-xl object-cover transition duration-700 group-hover:scale-105"
                 />
             </div>
 
@@ -20,7 +20,7 @@ function PhotoCard({ post }) {
                     </p>
                 </div>
 
-                <button className="opacity-0 transition group-hover:opacity-100">
+                <button className="text-neutral-400 hover:text-black transition">
                     ...
                 </button>
             </div>

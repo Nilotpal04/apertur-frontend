@@ -26,17 +26,6 @@ function Feed() {
 
     return (
         <section className="px-8 py-6">
-            <h1
-                className="
-                    mb-8
-                    text-3xl
-                    font-semibold
-                    text-[var(--darkroom-ink)]
-                "
-            >
-                Apertur Feed
-            </h1>
-
             <div
                 className="
                     columns-2
