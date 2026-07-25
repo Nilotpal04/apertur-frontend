@@ -25,7 +25,7 @@ function Feed() {
     }
 
     return (
-        <section className="px-8 py-6">
+        <section className="px-8 pt-4 pb-12">
             <div
                 className="
                     columns-2
@@ -34,7 +34,6 @@ function Feed() {
                     gap-6
                 "
             >
-
                 {
                     data?.posts?.map((post) => (
                         <PhotoCard

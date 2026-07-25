@@ -1,26 +1,24 @@
 function PhotoCard({ post }) {
     return (
-        <article className="mb-6 break-inside-avoid group cursor-pointer">
-            <div className="overflow-hidden rounded-2xl bg-[var(--contact-sheet)]">
+        <article className="mb-6 break-inside-avoid group cursor-pointer relative">
+            {/* Image Container */}
+            <div className="relative overflow-hidden rounded-2xl bg-[var(--contact-sheet)]">
                 <img
                     src={post.image_url}
                     alt={post.content}
                     loading="lazy"
-                    className="w-full rounded-xl object-cover transition duration-700 group-hover:scale-105"
+                    className="w-full rounded-xl object-cover transition duration-500 group-hover:scale-105"
                 />
+                
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl" />
             </div>
-
-            <div className="flex items-start justify-between px-2 pt-3">
-                <div>
-                    <h3 className="text-sm text-[var(--darkroom-ink)]">
+            <div className="flex items-start justify-between px-1 pt-2.5">
+                <div className="flex flex-col max-w-[90%]">
+                    <h3 className="text-sm font-semibold text-[var(--darkroom-ink)] leading-tight line-clamp-2">
                         {post.content}
                     </h3>
-                    <p className="mt-1 text-xs text-[var(--contact-sheet)]">
-                        {post.username}
-                    </p>
                 </div>
-
-                <button className="text-neutral-400 hover:text-black transition">
+                <button className="text-neutral-400 hover:bg-neutral-100 p-1 rounded-full transition mt-1">
                     ...
                 </button>
             </div>
