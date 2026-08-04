@@ -39,9 +39,6 @@ function PostViewer({ post }) {
                         flex
                         items-center
                         justify-center
-                        rounded-3xl
-                        bg-neutral-100
-                        p-4
                     "
                 >
                     <img
