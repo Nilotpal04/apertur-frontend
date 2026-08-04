@@ -1,24 +1,38 @@
 import { useParams } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout"
+import {usePost} from "../hooks/usePost"
+import PostViewer from "../components/PostViewer"
 
-function PostPage() {
-    const {id} = useParams();
+function PostPage(){
+    const { id } = useParams();
+
+    const {
+        data: post,
+        isLoading,
+        error,
+    } = usePost(id);
+
+    if (isLoading) {
+        return (
+            <MainLayout>
+                <p className="p-8">Loading...</p>
+            </MainLayout>
+        );
+    }
+
+    if (error) {
+        return (
+            <MainLayout>
+                <p className="p-8 text-red-500">
+                    Failed to load post.
+                </p>
+            </MainLayout>
+        );
+    }
 
     return (
         <MainLayout>
-            <div className="max-w-6xl mx-auto py-8">
-                <h1 className="text-3xl font-semibold">
-                    Post Page
-                </h1>
-
-                <p className="mt-4 text-neutral-500">
-                    post ID:
-                </p>
-
-                <p className="font-mono">
-                    {id}
-                </p>
-            </div>
+            <PostViewer post={post} />
         </MainLayout>
     );
 }

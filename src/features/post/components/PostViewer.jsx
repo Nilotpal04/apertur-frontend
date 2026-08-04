@@ -36,9 +36,12 @@ function PostViewer({ post }) {
 
                 <div
                     className="
+                        flex
+                        items-center
+                        justify-center
                         rounded-3xl
-                        overflow-hidden
                         bg-neutral-100
+                        p-4
                     "
                 >
                     <img
@@ -46,7 +49,9 @@ function PostViewer({ post }) {
                         alt={post.content}
                         className="
                             w-full
-                            object-cover
+                            max-h-[65vh]
+                            object-contain
+                            rounded-3xl
                         "
                     />
                 </div>
