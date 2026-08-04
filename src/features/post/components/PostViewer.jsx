@@ -1,5 +1,6 @@
 import { Heart, Bookmark, MapPin, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import ViewerCard from "./ViewerCard";
 
 function PostViewer({ post }) {
     const navigate = useNavigate();
@@ -22,136 +23,138 @@ function PostViewer({ post }) {
                 <ArrowLeft size={18} />
                 Back
             </button>
-
-            <div
-                className="
-                    grid
-                    lg:grid-cols-[1.5fr_500px]
-                    gap-14
-                    items-start
-                "
-            >
-
-                {/* Photo */}
-
+            <ViewerCard>
                 <div
                     className="
-                        flex
-                        items-center
-                        justify-center
+                        grid
+                        lg:grid-cols-[1.2fr_420px]
                     "
                 >
-                    <img
-                        src={post.image_url}
-                        alt={post.content}
-                        className="
-                            w-full
-                            max-h-[65vh]
-                            object-contain
-                            rounded-3xl
-                        "
-                    />
-                </div>
-
-                {/* Sidebar */}
-
-                <aside className="sticky top-28">
-
-                    <div className="flex items-center justify-between">
-
-                        <div>
-
-                            <h2
-                                className="
-                                    text-3xl
-                                    font-semibold
-                                "
-                            >
-                                {post.content}
-                            </h2>
-
-                            <p
-                                className="
-                                    mt-2
-                                    text-neutral-500
-                                "
-                            >
-                                by @{post.username}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                    {
-                        post.location_name && (
-                            <div
-                                className="
-                                    mt-6
-                                    flex
-                                    items-center
-                                    gap-2
-                                    text-neutral-500
-                                "
-                            >
-                                <MapPin size={18} />
-
-                                {post.location_name}
-
-                            </div>
-                        )
-                    }
-
                     <div
                         className="
-                            mt-10
                             flex
-                            gap-3
+                            items-center
+                            justify-center
+                            bg-neutral-50
+                            p-8
+                        "
+                    >
+                    
+                        <img
+                            src={post.image_url}
+                            alt={post.content}
+                            className="
+                                w-full
+                                max-h-[65vh]
+                                object-contain
+                                rounded-2xl
+                            "
+                        />
+                    </div>
+
+                    <aside
+                        className="
+                            border-1
+                            border-neutral-200
+                            p-8
                         "
                     >
 
-                        <button
+                        <div className="flex items-center justify-between">
+
+                            <div>
+
+                                <h2
+                                    className="
+                                        text-3xl
+                                        font-semibold
+                                    "
+                                >
+                                    {post.content}
+                                </h2>
+
+                                <p
+                                    className="
+                                        mt-2
+                                        text-neutral-500
+                                    "
+                                >
+                                    by @{post.username}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        {
+                            post.location_name && (
+                                <div
+                                    className="
+                                        mt-6
+                                        flex
+                                        items-center
+                                        gap-2
+                                        text-neutral-500
+                                    "
+                                >
+                                    <MapPin size={18} />
+
+                                    {post.location_name}
+
+                                </div>
+                            )
+                        }
+
+                        <div
                             className="
+                                mt-10
                                 flex
-                                items-center
-                                gap-2
-                                rounded-full
-                                border
-                                px-5
-                                py-3
-                                hover:bg-neutral-100
-                                transition
+                                gap-3
                             "
                         >
-                            <Heart size={18} />
 
-                            {post.likes_count}
-                        </button>
+                            <button
+                                className="
+                                    flex
+                                    items-center
+                                    gap-2
+                                    rounded-full
+                                    border
+                                    px-5
+                                    py-3
+                                    hover:bg-neutral-100
+                                    transition
+                                "
+                            >
+                                <Heart size={18} />
 
-                        <button
-                            className="
-                                flex
-                                items-center
-                                gap-2
-                                rounded-full
-                                border
-                                px-5
-                                py-3
-                                hover:bg-neutral-100
-                                transition
-                            "
-                        >
-                            <Bookmark size={18} />
+                                {post.likes_count}
+                            </button>
 
-                            Frame
-                        </button>
+                            <button
+                                className="
+                                    flex
+                                    items-center
+                                    gap-2
+                                    rounded-full
+                                    border
+                                    px-5
+                                    py-3
+                                    hover:bg-neutral-100
+                                    transition
+                                "
+                            >
+                                <Bookmark size={18} />
 
-                    </div>
+                                Frame
+                            </button>
 
-                </aside>
+                        </div>
 
-            </div>
+                    </aside>
 
+                </div>
+            </ViewerCard>
         </section>
     );
 }
