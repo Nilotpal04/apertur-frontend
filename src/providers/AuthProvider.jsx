@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { getCurrentUser } from "../features/auth/services/auth.service";
 
-import useAuthStore from "../store/auth.store";
+import useAuthStore from "../store/auth.store.js";
 
 
 function AuthProvider({children}){

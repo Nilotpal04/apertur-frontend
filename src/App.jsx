@@ -1,12 +1,7 @@
-import MainLayout from "./components/layout/MainLayout";
-import Feed from "./features/feed/components/Feed";
+import AppRoutes from "./routes/AppRoutes";
 
-function App(){
-    return (
-        <MainLayout>
-            <Feed/>
-        </MainLayout>
-    )
+function App() {
+    return <AppRoutes />;
 }
 
 export default App;

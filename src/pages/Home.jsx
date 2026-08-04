@@ -1,9 +1,12 @@
+import MainLayout from "../components/layout/MainLayout";
 import Feed from "../features/feed/components/Feed";
 
-function Home(){
+function Home() {
     return (
-        <Feed/>
-    )
+        <MainLayout>
+            <Feed />
+        </MainLayout>
+    );
 }
 
 export default Home;

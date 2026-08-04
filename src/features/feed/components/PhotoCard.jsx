@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 function PhotoCard({ post }) {
+    const navigate = useNavigate();
+
     return (
-        <article className="mb-6 break-inside-avoid group cursor-pointer relative">
+        <article
+        onClick={() => {
+            console.log("Clicked!", post.id);
+            navigate(`/post/${post.id}`);
+        }}
+        className="mb-6 break-inside-avoid group cursor-pointer relative">
             {/* Image Container */}
             <div className="relative overflow-hidden rounded-2xl bg-[var(--contact-sheet)]">
                 <img

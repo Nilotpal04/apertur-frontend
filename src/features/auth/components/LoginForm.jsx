@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form"
 import { useState } from "react";
 import { login } from "../services/auth.service";
 
-import useAuthStore from "../../../store/auth.store";
+import useAuthStore from "../../../store/auth.store.js";
 
 function LoginForm() {
     const loginUser = useAuthStore((state) => state.login);
