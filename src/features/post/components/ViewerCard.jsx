@@ -1,17 +1,19 @@
-function ViewerCard({children}) {
+function ViewerCard({ children }) {
     return (
-        <section
+        <div
             className="
-                rounded-3xl
+                w-full
+                max-w-[900px]
+                rounded-2xl
+                overflow-hidden
                 border
                 border-neutral-200
                 bg-white
-                overflow-hidden
             "
         >
             {children}
-        </section>
-    )
+        </div>
+    );
 }
 
 export default ViewerCard;

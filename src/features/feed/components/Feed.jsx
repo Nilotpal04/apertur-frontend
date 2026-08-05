@@ -25,7 +25,7 @@ function Feed() {
     }
 
     return (
-        <section className="px-8 pt-4 pb-12">
+        <section className="px-8 pt-0 pb-12">
             <div
                 className="
                     columns-2

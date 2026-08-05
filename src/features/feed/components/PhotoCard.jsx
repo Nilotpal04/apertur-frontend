@@ -5,13 +5,13 @@ function PhotoCard({ post }) {
 
     return (
         <article
-        onClick={() => {
-            console.log("Clicked!", post.id);
-            navigate(`/post/${post.id}`);
-        }}
         className="mb-6 break-inside-avoid group cursor-pointer relative">
-            {/* Image Container */}
-            <div className="relative overflow-hidden rounded-2xl bg-[var(--contact-sheet)]">
+            <div className="relative overflow-hidden rounded-2xl bg-[var(--contact-sheet)]"
+            onClick={() => {
+                console.log("Clicked!", post.id);
+                navigate(`/post/${post.id}`);
+            }}
+            >
                 <img
                     src={post.image_url}
                     alt={post.content}

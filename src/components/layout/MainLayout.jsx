@@ -8,10 +8,10 @@ function MainLayout({children}){
         >
             <Sidebar/>
 
-            <div className="ml-20">
+            <div className="ml-15">
                 <Topbar/>
 
-                <main className="p-8"
+                <main className="p-3"
                 >
                     {children}
                 </main>
