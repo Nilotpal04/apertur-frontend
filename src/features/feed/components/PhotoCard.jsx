@@ -5,7 +5,7 @@ function PhotoCard({ post }) {
 
     return (
         <article
-        className="mb-6 break-inside-avoid group cursor-pointer relative">
+        className="group cursor-pointer relative">
             <div className="relative overflow-hidden rounded-2xl bg-[var(--contact-sheet)]"
             onClick={() => {
                 console.log("Clicked!", post.id);

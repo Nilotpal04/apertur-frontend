@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout"
 import {usePost} from "../hooks/usePost"
-import PostGrid from "../components/PostGrid"
+import PostViewer from "../components/PostViewer"
 
 function PostPage(){
     const { id } = useParams();
@@ -32,7 +32,7 @@ function PostPage(){
 
     return (
         <MainLayout>
-            <PostGrid post={post} />
+            <PostViewer post={post} />
         </MainLayout>
     );
 }
