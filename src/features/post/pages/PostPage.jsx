@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout";
 import { usePost } from "../hooks/usePost";
-import PostViewer from "../components/PostViewer";
-import Feed from "../../feed/components/Feed";
+import PostMasonry from "../components/PostMasonry";
 import { useFeed } from "../../feed/hooks/useFeed";
 
 function PostPage() {
@@ -44,9 +43,10 @@ function PostPage() {
 
     return (
         <MainLayout>
-            <PostViewer post={post} />
-
-            <Feed posts={suggestions} />
+            <PostMasonry
+                post={post}
+                suggestions={suggestions}
+            />
         </MainLayout>
     );
 }
