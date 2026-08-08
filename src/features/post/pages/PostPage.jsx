@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
-import MainLayout from "../../../components/layout/MainLayout"
-import {usePost} from "../hooks/usePost"
-import PostViewer from "../components/PostViewer"
+import MainLayout from "../../../components/layout/MainLayout";
+import { usePost } from "../hooks/usePost";
+import PostViewer from "../components/PostViewer";
+import Feed from "../../feed/components/Feed";
+import { useFeed } from "../../feed/hooks/useFeed";
 
-function PostPage(){
+function PostPage() {
     const { id } = useParams();
 
     const {
@@ -12,7 +14,13 @@ function PostPage(){
         error,
     } = usePost(id);
 
-    if (isLoading) {
+    const {
+        data: feed,
+        isLoading: feedLoading,
+        error: feedError,
+    } = useFeed();
+
+    if (isLoading || feedLoading) {
         return (
             <MainLayout>
                 <p className="p-8">Loading...</p>
@@ -20,7 +28,7 @@ function PostPage(){
         );
     }
 
-    if (error) {
+    if (error || feedError || !post) {
         return (
             <MainLayout>
                 <p className="p-8 text-red-500">
@@ -30,9 +38,15 @@ function PostPage(){
         );
     }
 
+    const suggestions = feed?.posts?.filter(
+        (p) => p.id !== post.id
+    ) ?? [];
+
     return (
         <MainLayout>
             <PostViewer post={post} />
+
+            <Feed posts={suggestions} />
         </MainLayout>
     );
 }

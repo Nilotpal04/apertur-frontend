@@ -1,10 +1,10 @@
 import MainLayout from "../components/layout/MainLayout";
-import Feed from "../features/feed/components/Feed";
+import FeedContainer from "../features/feed/components/FeedContainer";
 
 function Home() {
     return (
         <MainLayout>
-            <Feed />
+            <FeedContainer />
         </MainLayout>
     );
 }
